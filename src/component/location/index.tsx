@@ -5,8 +5,6 @@ import { LazyDiv } from "../lazyDiv"
 import { LOCATION, LOCATION_ADDRESS } from "../../const"
 
 
-console.log("NAVER Client ID:", import.meta.env.VITE_NAVER_CLIENT_ID)
-
 export const Location = () => {
   return (
     <>
