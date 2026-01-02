@@ -2,11 +2,13 @@
 -test 1-
 ## 원본 버전 | Original Version
 
-
-https://juhonamnam.github.io/wedding-invitation
+## https://juhonamnam.github.io/wedding-invitation
 
 
 ## 개요
+
+## 개인 버전
+https://gnsdlok-lang.github.io/wedding-letgo/
 
 React로 제작된 모던한 모바일 청첩장 웹사이트 템플릿입니다. 깔끔한 디자인을 특징으로 하며, 손쉽게 커스터마이징하여 자신만의 청첩장으로 만들 수 있습니다.
 
