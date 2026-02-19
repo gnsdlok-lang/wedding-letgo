@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Deploy
 
 on:
   push:
@@ -20,24 +20,27 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4  # v5도 OK지만 v4가 더 안정적
+        uses: actions/checkout@v5
 
-      - name: Create .env file from secrets
+      - name: Setup Environment Variables
         run: |
-          cat << EOF > .env
-          VITE_NAVER_MAP_CLIENT_ID=${{ secrets.VITE_NAVER_MAP_CLIENT_ID }}
-          VITE_KAKAO_SDK_JS_KEY=${{ secrets.VITE_KAKAO_SDK_JS_KEY }}
-          VITE_STATIC_ONLY=true
-          # VITE_SERVER_URL=  # 필요하면 여기에 값 넣기, 아니면 주석
-          EOF
+          echo "VITE_NAVER_MAP_CLIENT_ID=$VITE_NAVER_MAP_CLIENT_ID
+          VITE_KAKAO_SDK_JS_KEY=$VITE_KAKAO_SDK_JS_KEY
+          VITE_SERVER_URL=$VITE_SERVER_URL
+          VITE_STATIC_ONLY=$VITE_STATIC_ONLY" >> .env
+        env:
+          VITE_NAVER_MAP_CLIENT_ID: ${{ secrets.VITE_NAVER_MAP_CLIENT_ID }}
+          VITE_KAKAO_SDK_JS_KEY: ${{ secrets.VITE_KAKAO_SDK_JS_KEY }}
+          VITE_SERVER_URL: ${{ vars.VITE_SERVER_URL }}
+          VITE_STATIC_ONLY: true
 
-      - name: Setup Node.js
+      - name: Use Node.js 22.x
         uses: actions/setup-node@v4
         with:
-          node-version: 20  # 22.x 대신 LTS 20 추천 (안정성)
+          node-version: 22.x
 
       - name: Install dependencies
-        run: npm ci  # npm install 대신 ci 추천 (캐시 + 정확성)
+        run: npm install
 
       - name: Build
         run: npm run build
@@ -48,7 +51,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist  # ← 핵심 수정: Vite는 dist 폴더!
+          path: "./build"
 
       - name: Deploy to GitHub Pages
         id: deployment
