@@ -16,7 +16,7 @@ export const WEDDING_DATE_FORMAT = `YYYY년 MMMM D일 dddd A h시${WEDDING_DATE.
 // 예: 예식일 8월 -> 8월 15일 광복절
 export const HOLIDAYS = [5,25]
 
-export const LOCATION = "라도무스 아트센터 웨딩홀"
+export const LOCATION = "라도무스 아트센터 웨딩홀, 8층 루미니스홀"
 export const LOCATION_ADDRESS = "대전광역시 유성구 동서대로 639"
 
 // 카카오톡 공유 시 위치 정보로 사용할 주소.
