@@ -12,9 +12,9 @@ export const Information1 = () => {
       <div className="info-card">
         <div className="label">식사 안내</div>
         <div className="content">
-          식사시간: 10시 30분 ~ 11시 30분(입장 10시 15분부터)-는 구라고 확인해야함
+          식사시간: 11시 00분 ~ 13시 00분(예식시간 30분전~2시간)
           <br />
-          장소: 지하 1층 연회장-는 구라고 확인해야함
+          장소: 예식장 아래 7층 연회장
         </div>
       </div>
     </>
